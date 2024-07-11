@@ -23,16 +23,15 @@ export const getNotes = async () =>{
     }
   };
 
-  export const DeleteNote = async (noteToDeleteId: string) =>{
+  export const DeleteNote = async (noteToDeleteId: string) => {
     try {
         const url = `${NOTES_API_URL}/${noteToDeleteId}`;
-      const response = await axios.post(url);
-      return response.data.reply;
-      
+        const response = await axios.delete(url);
+        return response.data.reply;
     } catch (err) {
-      console.error(err);
+        console.error(err);
     }
-  };
+};
 
   export const UpdateNote = async (noteToUpdate :INote) =>{
     try {
